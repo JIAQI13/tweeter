@@ -2,7 +2,6 @@ $(document).ready(function () {
     $('.tooLong').hide();
     $('.tooShort').hide();
     $('.tweet-text').on('keyup', function () {
-
         // count when user input
         let chars = $('textarea').val().length;
         $('.counter').html(140-chars);

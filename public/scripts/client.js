@@ -42,7 +42,7 @@ const createTweetElement = function (tweet) {
   let $tweet =
     `
   <section>
-  <div style='width:100%;' class='tweet-header'>
+  <div style='width:90%;' class='tweet-header'>
     <div>
       <img class='resize' src=${escape(tweet.user.avatars)} >
       <label>${escape(tweet.user.name)}</label>
