@@ -7,8 +7,9 @@
   border-bottom: solid;
 }
 .tweet-creator{
-  margin: 1em;
-  padding: 1.5em;
+  margin-top: 2em;
+  margin-bottom: 2em;
+  width:100%;
 }
 .counter{
   float: right;
@@ -22,11 +23,11 @@
 }
 .article{
   border:solid;
-  margin: top 2em;
+  margin: 2em;
   font-family:  'Source Sans Pro',sans-serif;
 }
 
-div.tweet-header{
+.tweet-header{
   display: flex;
   flex-direction: row;
   width: 100%;
@@ -34,10 +35,11 @@ div.tweet-header{
   align-items: baseline;
 }
 
-img.resize{
-    width: 10%;
-    height: auto;
+.username{
+  margin-right: 1em;
+  color:lightgrey;
 }
+
 
 #tweet-content{
   height:100px;
@@ -53,11 +55,35 @@ img.resize{
   height: 50px;
   padding-top: 15px;
   display: flex;
-  flex-shrink: 1;
   align-items: center;
   flex-direction: row;
   width: 100%;
   justify-content: space-between;
   align-items: baseline;
+  padding: 1em;
+  margin-bottom: 1em;
+  font-weight:normal;
 }
 
+.tweet-section{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.fa-flag:hover,
+.fa-retweet:hover,
+.fa-heart:hover
+ {
+  color:red;
+};
+
+@media (min-width: 1200px) {
+.tweet-creator{
+  display: flex;
+  /* justify-content: flex-end; */
+  width: 100%;
+  padding:0;
+  margin-top: 4em;
+}
+}

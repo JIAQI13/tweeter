@@ -1,13 +1,16 @@
 nav {
     font-family:'Bungee',sans-serif;
     height: 120px;
-    width: 100%;
     background-color: #4056A1;
     color: #FFFF;
     padding: 1.5em;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    overflow: hidden;
+    position: fixed; /* Set the navbar to fixed position */
+    top: 0; /* Position the navbar at the top of the page */
+    width: 100%;
   }
  
   .CreateNewTweet{

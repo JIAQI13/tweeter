@@ -19,6 +19,7 @@ body {
   background-color: #f4f1ec;
   font-size: 24px;
   margin: 0;
+  min-width: 500px;
 }
 
 /*
@@ -36,6 +37,44 @@ body {
   font-weight:bold;
 }
 
+.errorMessage{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+
+}
+  
+.tooShort,
+.tooLong{
+  border-color: red;
+  color: red;
+  display: none;
+}
+
 .red{
  color: red;
 }
+
+
+@media (min-width: 800px) {
+  .responsive{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100vw;
+  }
+  main.container{
+    width:80%;
+    align-items: flex-end;
+  }
+  header{
+    height:300px;
+    flex-direction: row;
+    flex-shrink: 1;
+    left: 0;
+  }
+}
+
+
+

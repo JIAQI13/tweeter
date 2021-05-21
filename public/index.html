@@ -4,7 +4,7 @@
 <head>
   <!-- Meta Information -->
   <title>Tweeter - Home Page</title>
-
+  <meta name="viewport" style='min-width: 600px;' content="width=device-width, initial-scale=1.0">D
   <!-- External CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
     type="text/css" />
@@ -25,13 +25,17 @@
   <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
   <link rel="stylesheet" href="/styles/header.css" type="text/css" />
   <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css" />
-
+  <style type="text/css">
+    #maxmin { max-width: 900px; min-width: 650px; margin: 0 auto; border: none; padding: 0; }
+    </style>
   <!-- External JS -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/timeago.js/4.0.2/timeago.min.js" integrity="sha512-SVDh1zH5N9ChofSlNAK43lcNS7lWze6DTVx1JCXH1Tmno+0/1jMpdbR8YDgDUfcUrPp1xyE53G42GFrcM0CMVg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <!-- App JS -->
   <script type="text/javascript" src="/scripts/client.js"></script>
   <script type="text/javascript" src="/scripts/composer-char-counter.js"></script>
+
+ 
 </head>
 
 <body>
@@ -45,60 +49,44 @@
   </nav>
 
   <!-- Page-specific (main) content here -->
+  <div class='responsive'>
 
-  <header>
-    <div>
-      <img src="/images/profile-hex.png">
-    </div>
+    <header>
+      <div class='img-box'>
+        <img src="/images/profile-hex.png">
+      </div>
     <div class='myName'>
       <h2>Your Name</h2>
     </div>
   </header>
-
+  
   <main class='container'>
     <div class = 'tweet-creator'>
       <section>
-        <!-- <h2>Compose Tweet</h2> -->
-        <form action="/tweets/" method='POST'>
+        <form action="/tweets/" method='POST' id='tweet-form'>
+          <div class='errorMessage'>
+            <h2 class='tooLong' hidden>😠tweet content cannot exceed 140 characters😠</h2>
+            <h2 class='tooShort' hidden>😠tweet content cannot be empty😠</h2>
+          </div>
           <label for="tweet-text" 
-                 style="font-family:  'Source Sans Pro',sans-serif; font-weight:bold;">
-            What are you humming about?
-          </label>
-          <div class = 'textBox'>
-            <textarea name="text" class="tweet-text"></textarea>
-          </div>
-          <div>
-            <button class='tweet-new-tweet' type="submit">Tweet</button>
-            <output name="counter" class="counter" for="tweet-text">140</output>
-          </div>
-        </form>
-      </section>
-    </div>
-
-    <div class='article'>
-      <section>
-        <div class='tweet-header'>
-          <div>
-            <img class='resize' src="/images/profile-hex.png">
-            <label>Newton</label>
-          </div>
-          <label class='username'>@ImagineWagons</label>
+          style="font-family:  'Source Sans Pro',sans-serif; font-weight:bold;">
+          What are you humming about?
+        </label>
+        <div class = 'textBox'>
+          <textarea name="text" class="tweet-text"></textarea>
         </div>
-        <div id='tweet-content-box'>
-          <p id='tweet-content'>I'm afraid for the calendar. Its days are numbered.</p>
+        <div>
+          <button class='tweet-new-tweet' type="submit">Tweet</button>
+          <output name="counter" class="counter" for="tweet-text">140</output>
         </div>
-        <div id='tweet-button'>
-          <label>10 days ago</label>
-          <div>
-            <i class="fas fa-flag"></i>
-            <i class="fas fa-retweet"></i>
-            <i class="fas fa-heart"></i>
-          </div>
-        </div>
-        </div>
-      </section>
-    </div>
-  </main>
+      </form>
+    </section>
+  </div>
+  
+  <!--posted tweeters-->
+  <section class='tweet-section'></section>
+</main>
+</div>
 </body>
 
 </html>
