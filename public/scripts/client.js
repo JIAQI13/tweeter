@@ -41,7 +41,7 @@ const escape = function (str) {
 const createTweetElement = function (tweet) {
   let $tweet =
     `
-  <section>
+  <section class='tweetss-section'>
   <div style='width:90%;' class='tweet-header'>
     <div>
       <img class='resize' src=${escape(tweet.user.avatars)} >
