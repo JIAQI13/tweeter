@@ -78,14 +78,17 @@ const loadTweets = () => {
     })
 }
 
+
 $(function () {
+  $("tweet-text").html="";
+  loadTweets();
   $('#tweet-form').on('submit', function (event) {
     event.preventDefault();
-    if ($('textarea').val().length >140){
+    if ($('textarea').val().length > 140) {
       $('.tooLong').show();
       return false;
     }
-    if ($('textarea').val().length === 0){
+    if ($('textarea').val().length === 0) {
       $('.tooShort').show();
       return false;
     }
@@ -96,6 +99,7 @@ $(function () {
     })
       .then(() => {
         loadTweets();
+        $("tweet-text").html="";
       });
   });
 });
