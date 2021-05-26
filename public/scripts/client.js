@@ -6,14 +6,14 @@
 // Fake data taken from initial-tweets.json
 
 
-const renderTweets = function (tweets) {
+const renderTweets = function(tweets) {
   for (let tweet of tweets) {
     $('.tweet-section').prepend(createTweetElement(tweet));
   }
-}
+};
 
 //https://timeago.org/ sample code
-const locale = function (number, index, totalSec) {
+const locale = function(number, index, totalSec) {
   return [
     ['just now', 'right now'],
     ['%s seconds ago', 'in %s seconds'],
@@ -31,15 +31,16 @@ const locale = function (number, index, totalSec) {
     ['%s years ago', 'in %s years']
   ][index];
 };
+
 //preventing xss attack with esacaping
-const escape = function (str) {
-  let div = document.createElement("div");
+const escape = function(str) {
+  const div = document.createElement("div");
   div.appendChild(document.createTextNode(str));
   return div.innerHTML;
 };
 
-const createTweetElement = function (tweet) {
-  let $tweet =
+const createTweetElement = function(tweet) {
+  const $tweet =
     `
   <section class='tweetss-section'>
   <div style='width:90%;' class='tweet-header'>
@@ -63,9 +64,9 @@ const createTweetElement = function (tweet) {
   </div>
 </section>
 
-  `
+  `;
   return $tweet;
-}
+};
 
 const loadTweets = () => {
   $.ajax({
@@ -75,14 +76,14 @@ const loadTweets = () => {
     .then((tweets) => {
       renderTweets(tweets);
       $('#tweet-form').reset();
-    })
-}
+    });
+};
 
 
-$(function () {
-  $("tweet-text").html="";
+$(function() {
+  $("tweet-text").html = "";
   loadTweets();
-  $('#tweet-form').on('submit', function (event) {
+  $('#tweet-form').on('submit', function(event) {
     event.preventDefault();
     if ($('textarea').val().length > 140) {
       $('.tooLong').show();
@@ -92,14 +93,14 @@ $(function () {
       $('.tooShort').show();
       return false;
     }
-    $('.tweet-section').empty();
     $.ajax('/tweets', {
       method: 'POST',
       data: $(this).serialize()
     })
       .then(() => {
         loadTweets();
-        $("tweet-text").html="";
+        $('textarea.tweet-text').val('');
+        $('output.counter').val('140');
       });
   });
 });

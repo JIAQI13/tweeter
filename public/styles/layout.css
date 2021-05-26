@@ -55,7 +55,7 @@ body {
  color: #4056A1;
 }
 
-.tweetss-section{
+.tweetss-section:hover{
   margin: 2em;
   border: solid;
   padding: 1em;
