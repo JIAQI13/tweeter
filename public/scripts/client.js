@@ -75,7 +75,19 @@ const loadTweets = () => {
   })
     .then((tweets) => {
       renderTweets(tweets);
-      $('#tweet-form').reset();
+      //$('#tweet-form').reset();
+      // console.log(tweets);
+    });
+};
+
+
+const loadTweetsNew = () => {
+  $.ajax({
+    url: '/tweets',
+    method: 'GET'
+  })
+    .then((tweets) => {
+      renderTweets([tweets[tweets.length-1]]);
     });
 };
 
@@ -99,8 +111,7 @@ $(function() {
       data: $(this).serialize()
     })
       .then(() => {
-        $("section.tweet-section").empty();
-        loadTweets();
+        loadTweetsNew();
         $('textarea.tweet-text').val('');
         $('output.counter').val('140');
       });
