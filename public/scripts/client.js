@@ -91,7 +91,7 @@ $(function() {
       return false;
     }
     if ($('textarea').val().length === 0) {
-      $('.tooShort').show();
+      $('.tooShort').slideDown();
       return false;
     }
     $.ajax('/tweets', {

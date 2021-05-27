@@ -1,6 +1,6 @@
 $(document).ready(function() {
-  $('.tooLong').hide();
-  $('.tooShort').hide();
+  $('.tooLong').slideUp();
+  $('.tooShort').slideUp();
   $('.tweet-text').on('keyup', function() {
     // count when user input
     let chars = $('textarea').val().length;
@@ -8,13 +8,13 @@ $(document).ready(function() {
 
     //color changing based on word count
     if ($('textarea').val().length > 140) {
-      $('.tooLong').show();
+      $('.tooLong').slideDown();
       $(".counter").css("color", "red");
       chars = 140 - $('textarea').val().length;
       $('.counter').html(chars);
     } else {
-      $('.tooLong').hide();
-      $('.tooShort').hide();
+      $('.tooLong').slideUp();
+      $('.tooShort').slideUp();
       $(".counter").css("color", "");
     }
   });
