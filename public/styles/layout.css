@@ -56,9 +56,9 @@ body {
 }
 
 .tweetss-section:hover{
-  margin: 2em;
+  /* margin: 2em; */
   border: solid;
-  padding: 1em;
+  /* padding: 1em; */
   box-shadow: 5px 10px #888888;
 }
 

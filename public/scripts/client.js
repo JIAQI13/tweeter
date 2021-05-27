@@ -42,7 +42,7 @@ const escape = function(str) {
 const createTweetElement = function(tweet) {
   const $tweet =
     `
-  <section class='tweetss-section'>
+  <section class='tweetss-section' style='margin-top:2em;'>
   <div style='width:90%;' class='tweet-header'>
     <div>
       <img class='resize' src=${escape(tweet.user.avatars)} >
@@ -82,6 +82,7 @@ const loadTweets = () => {
 
 $(function() {
   $("tweet-text").html = "";
+  $("section.tweet-section").empty();
   loadTweets();
   $('#tweet-form').on('submit', function(event) {
     event.preventDefault();
@@ -98,6 +99,7 @@ $(function() {
       data: $(this).serialize()
     })
       .then(() => {
+        $("section.tweet-section").empty();
         loadTweets();
         $('textarea.tweet-text').val('');
         $('output.counter').val('140');

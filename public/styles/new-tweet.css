@@ -47,6 +47,7 @@
   border-bottom: solid;
   margin:0 auto;
   width:90%;
+  word-break: break-all;
 
 }
 
@@ -64,8 +65,9 @@
   font-weight:normal;
 }
 
-.tweet-section{
+section.tweet-section{
   width: 100%;
+  padding: 1em;
   display: flex;
   flex-direction: column;
 }
