@@ -6,40 +6,20 @@
 // Fake data taken from initial-tweets.json
 
 
-const renderTweets = function(tweets) {
+const renderTweets = function (tweets) {
   for (let tweet of tweets) {
     $('.tweet-section').prepend(createTweetElement(tweet));
   }
 };
 
-//https://timeago.org/ sample code
-const locale = function(number, index, totalSec) {
-  return [
-    ['just now', 'right now'],
-    ['%s seconds ago', 'in %s seconds'],
-    ['1 minute ago', 'in 1 minute'],
-    ['%s minutes ago', 'in %s minutes'],
-    ['1 hour ago', 'in 1 hour'],
-    ['%s hours ago', 'in %s hours'],
-    ['1 day ago', 'in 1 day'],
-    ['%s days ago', 'in %s days'],
-    ['1 week ago', 'in 1 week'],
-    ['%s weeks ago', 'in %s weeks'],
-    ['1 month ago', 'in 1 month'],
-    ['%s months ago', 'in %s months'],
-    ['1 year ago', 'in 1 year'],
-    ['%s years ago', 'in %s years']
-  ][index];
-};
-
 //preventing xss attack with esacaping
-const escape = function(str) {
+const escape = function (str) {
   const div = document.createElement("div");
   div.appendChild(document.createTextNode(str));
   return div.innerHTML;
 };
 
-const createTweetElement = function(tweet) {
+const createTweetElement = function (tweet) {
   const $tweet =
     `
   <section class='tweetss-section' style='margin-top:2em;'>
@@ -87,19 +67,19 @@ const loadTweetsNew = () => {
     method: 'GET'
   })
     .then((tweets) => {
-      renderTweets([tweets[tweets.length-1]]);
+      renderTweets([tweets[tweets.length - 1]]);
     });
 };
 
 
-$(function() {
+$(function () {
   $("tweet-text").html = "";
   $("section.tweet-section").empty();
   loadTweets();
-  $('#tweet-form').on('submit', function(event) {
+  $('#tweet-form').on('submit', function (event) {
     event.preventDefault();
     if ($('textarea').val().length > 140) {
-      $('.tooLong').show();
+      $('.tooLong').slideDown();
       return false;
     }
     if ($('textarea').val().length === 0) {
